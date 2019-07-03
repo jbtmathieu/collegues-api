@@ -30,5 +30,16 @@ public class CollegueController {
 		return response;
 
 	}
+	
+	@RequestMapping(
+			method=RequestMethod.GET,
+			path="/collegues")
+	public Collegue ChercheMatricule(@RequestParam String name) {
+		Collegue collegue;
+
+		
+		return collService.rechercherParMatricule(name);
+
+	}
 
 }

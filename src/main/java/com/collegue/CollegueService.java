@@ -35,14 +35,42 @@ public class CollegueService {
 	    
 	    public List<Collegue> rechercherParNom(String nomRecherche) {
 	        // TODO retourner une liste de collègues dont le nom est fourni
+	    	
+
 	    	List<Collegue> collegues = new ArrayList<Collegue>();
+	    	if ( nomRecherche != null) {
 	    	data.forEach((id, coll) -> {
 				if(coll.getNom().equals(nomRecherche)) {
 					collegues.add(coll);
 				}
 			});
+	    	}
 	    	return collegues;
+	    	
 	    }
 
-	}
+	    public Collegue rechercherParMatricule(String matriculeRecherche) {
+	    	
+	    	if ( matriculeRecherche != null) {
+	    	
+	    	Collegue colle = null;
+	    	for (Map.Entry<String, Collegue> entry : data.entrySet()) { 
+	            if (entry.getValue().getMatricule().equals(matriculeRecherche)) {
+	            	colle=entry.getValue();
+	            	return colle;
+	            }
+	    		}
+	    	if (colle==null) {
+	    		try {
+					throw new CollegueNontrouveException();
+				} catch (CollegueNontrouveException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+	    	}
+	    	}
+	    	return null;
+	    	
+	    }
 
+}
