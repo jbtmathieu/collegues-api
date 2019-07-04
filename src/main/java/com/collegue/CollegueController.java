@@ -19,7 +19,8 @@ public class CollegueController {
 	}
 
 	@RequestMapping(
-			method=RequestMethod.GET)
+			method=RequestMethod.GET,
+			params= "name")
 	public List<String> RecupParamRequete(@RequestParam String name) {
 		List<Collegue> collegues=collService.rechercherParNom(name);
 		List<String>  response= new ArrayList<String>();
@@ -33,12 +34,10 @@ public class CollegueController {
 	
 	@RequestMapping(
 			method=RequestMethod.GET,
-			path="/collegues")
-	public Collegue ChercheMatricule(@RequestParam String name) {
+			params= "matricule")
+	public Collegue ChercheMatricule(@RequestParam String matricule) {
 		Collegue collegue;
-
-		
-		return collService.rechercherParMatricule(name);
+		return collService.rechercherParMatricule(matricule);
 
 	}
 
