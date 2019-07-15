@@ -79,9 +79,8 @@ public class CollegueService {
 	    	
 	    }
 	    public Collegue ajouterUnCollegue(Collegue collegueAAjouter) {
-	    	Collegue collegue= null;
 	    	if (collegue != null) {
-	    		
+	    		if (collegueAAjouter.)
 	    	
 	    	// TODO Vérifier que le nom et les prenoms ont chacun au moins 2 caractères
 	    	
